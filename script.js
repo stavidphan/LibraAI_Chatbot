@@ -104,9 +104,16 @@ document.addEventListener("DOMContentLoaded", function () {
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append("ngrok-skip-browser-warning", "bypass");
         myHeaders.append("User-Agent", "LibraAI/1.0");
+
+        // Collect conversation history
+        const conversationHistory = Array.from(messages.children).map(msg => {
+            const role = msg.classList.contains("user-message") ? "user" : "assistant";
+            return { role, content: msg.textContent.trim() };
+        });
     
         const raw = JSON.stringify({
             query: messageText,
+            conversation_history: conversationHistory,
             mode: selectedMode
             // model: selectedModel,
         });

@@ -375,8 +375,8 @@ body {
     .messages {
         padding-top: 60px; /* Adjust padding-top on mobile */
         padding-bottom: 80px; /* Adjust padding-bottom */
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     .input-area {

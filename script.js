@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             const startTime = performance.now();
     
-            const response = await fetch("http://localhost:8000/query", requestOptions);
+            const response = await fetch("https://01ac-171-241-76-223.ngrok-free.app/query", requestOptions);
             const result = await response.json();
     
             const endTime = performance.now();

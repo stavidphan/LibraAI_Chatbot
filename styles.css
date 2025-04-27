@@ -4,8 +4,14 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
-    background-color: #1a1a1a;
+    background-color: #1F2123;
     color: #e0e0e0;
     font-family: "Roboto", Arial, sans-serif;
     font-weight: 200;
@@ -76,7 +82,7 @@ body {
     margin: 5px 0;
     padding: 10px 15px;
     border-radius: 10px;
-    color: #e0e0e0;
+    color: #ede5e5f6;
     font-family: "Roboto", Arial, sans-serif;
     font-weight: 200;
     word-wrap: break-word;
@@ -134,6 +140,7 @@ body {
     width: 90%;
     max-width: 800px;
     z-index: 100;
+    touch-action: none;
 }
 
 .input-row {
@@ -334,46 +341,48 @@ body {
         padding: 5px 8px;
     }
 
-    .book-icon {
-        width: 16px;
+    .book-icon { 
+        width: 18px;
         height: 20px;
     }
 
     .logo-text {
-        font-size: 13px; /* Adjust font size */
+        font-size: 14px; /* Adjust font size */
     }
 
     .new-chat-button {
         top: 10px;
         right: 10px;
-        width: 29px;
-        height: 29px;
+        width: 36px;
+        height: 36px;
     }
 
     .new-chat-button .new-chat-icon {
-        width: 14px;
-        height: 14px;
+        width: 18px;
+        height: 18px;
     }
 
     .new-chat-button:hover {
-        width: 80px; /* Adjust width when hovering on mobile */
+        width: 100px; /* Adjust width when hovering on mobile */
     }
 
     .new-chat-button .new-chat-text {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .messages {
-        padding-top: 50px; /* Adjust padding-top on mobile */
-        padding-bottom: 70px; /* Adjust padding-bottom */
+        padding-top: 60px; /* Adjust padding-top on mobile */
+        padding-bottom: 80px; /* Adjust padding-bottom */
     }
 
     .input-area {
-        padding: 2px 5px 5px 5px; /* Adjust padding on mobile */
+        padding: 2px 6px 6px 6px; /* Adjust padding on mobile */
         border-radius: 20px;
         bottom: 0; /* Fix bottom to viewport */
-        width: 90%; /* Reduce width to avoid edge touching */
+        width: 95%; /* Reduce width to avoid edge touching */
+        max-width: 320px;
         max-width: none; /* Remove max-width for responsiveness */
+        padding-bottom: env(safe-area-inset-bottom);
     }
 
     .mobile-input-area {
@@ -384,29 +393,29 @@ body {
     }
 
     #userInput {
-        padding: 12px 8px 0px 8px; /* Giảm padding trên điện thoại */
-        font-size: 12px; /* Giảm kích thước chữ */
-        min-height: 20px;
+        padding: 15px 10px 0px 10px; /* Giảm padding trên điện thoại */
+        font-size: 14px; /* Giảm kích thước chữ */
+        min-height: 25px;
     }
 
     .mode-select-button {
-        width: 56px;
-        height: 26px;
-        padding: 5px;
-        font-size: 10px;
+        width: 70px;
+        height: 32px;
+        padding: 6px;
+        font-size: 12px;
     }
 
     .mode-options {
-        width: 56px;
+        width: 70px;
     }
 
     .mode-option {
-        padding: 5px 8px;
-        font-size: 10px;
+        padding: 6px 10px;
+        font-size: 12px;
     }
 
     #sendButton {
-        width: 26px;
-        height: 26px;
+        width: 32px;
+        height: 32px;
     }
 }

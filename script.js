@@ -3,6 +3,7 @@ window.onbeforeunload = function() {
     const hasMessages = document.getElementById("messages").children.length > 0;
     if (userInput !== "" || hasMessages) {
         console.log("Page is about to refresh");
+        saveChatHistory();
         return "Do you want to leave this page? Your chat history may be lost.";
     }
     return null;
@@ -70,13 +71,9 @@ document.addEventListener("DOMContentLoaded", function () {
     
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("ngrok-skip-browser-warning", "bypass");
+        myHeaders.append("User-Agent", "LibraAI/1.0");
     
-        // Collect conversation history
-        const conversationHistory = Array.from(messages.children).map(msg => {
-            const role = msg.classList.contains("user-message") ? "user" : "assistant";
-            return { role, content: msg.textContent.trim() };
-        });
-
         const raw = JSON.stringify({
             query: messageText,
             mode: selectedMode
@@ -114,7 +111,9 @@ document.addEventListener("DOMContentLoaded", function () {
             botPlaceholder.textContent = "Error connecting to API!";
             console.error(error);
         } finally {
-            userInput.style.height = "40px";
+            getMessagesContainerHeight();
+            userInput.style.height = "auto";
+            userInput.style.height = userInput.scrollHeight + "px";
         }
     
         saveChatHistory();
@@ -126,11 +125,13 @@ document.addEventListener("DOMContentLoaded", function () {
         messageDiv.innerHTML = marked.parse(text);
         messages.appendChild(messageDiv);
     
-        messageDiv.scrollIntoView({ behavior: "smooth", block: "end" });
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: "smooth"
-        });
+        if (messages.scrollHeight > 958) {
+            messageDiv.scrollIntoView({ behavior: "smooth", block: "end" });
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
+        }
 
         return messageDiv; 
     }

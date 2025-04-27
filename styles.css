@@ -44,7 +44,7 @@ body {
     width: 100%;
     flex-grow: 1;
     position: static;
-    padding-top: 70px;
+    padding-top: 50px;
     padding-bottom: 90px;
 }
 
@@ -269,6 +269,8 @@ body {
 
 .mode-selector {
     position: relative;
+    padding-bottom: 7px;
+    padding-left: 6px;
 }
 
 .mode-select-button {
@@ -276,7 +278,7 @@ body {
     align-items: center;
     background-color: #2d2c2c;
     border: 1px solid #686666;
-    border-radius:20px;
+    border-radius:15px;
     padding: 8px;
     color: #e0e0e0;
     font-size: 14px;
@@ -373,6 +375,8 @@ body {
     .messages {
         padding-top: 60px; /* Adjust padding-top on mobile */
         padding-bottom: 80px; /* Adjust padding-bottom */
+        padding-left: 5px;
+        padding-right: 5px;
     }
 
     .input-area {
@@ -394,7 +398,7 @@ body {
 
     #userInput {
         padding: 15px 10px 0px 10px; /* Giảm padding trên điện thoại */
-        font-size: 14px; /* Giảm kích thước chữ */
+        font-size: 16px; /* Giảm kích thước chữ */
         min-height: 25px;
     }
 

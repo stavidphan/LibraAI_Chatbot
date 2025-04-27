@@ -25,12 +25,20 @@
                     <textarea id="userInput" placeholder="How can I help you?..."></textarea>
                 </div>
                 <div class="controls-row">
-                    <select id="modeSelect" class="mode-dropdown">
-                        <option value="hybrid" selected>Hybrid</option>
-                        <option value="local">Local</option>
-                        <option value="global">Global</option>
-                        <option value="naive">Naive</option>
-                    </select>
+                    <div class="mode-selector">
+                        <button id="modeSelectButton" class="mode-select-button">
+                            <span id="selectedModeText">Hybrid</span>
+                            <svg class="dropdown-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e0e0e0" stroke-width="2">
+                                <path d="M7 10l5 5 5-5z"/>
+                            </svg>
+                        </button>
+                        <ul id="modeOptions" class="mode-options">
+                            <li data-value="hybrid" class="mode-option selected">Hybrid </li>
+                            <li data-value="local" class="mode-option">Local </li>
+                            <li data-value="global" class="mode-option">Global </li>
+                            <li data-value="naive" class="mode-option">Naive </li>
+                        </ul>
+                    </div>
                     <!--
                         <select id="modelSelect" class="model-dropdown">
                         <option value="ollama" selected>Ollama</option>

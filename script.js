@@ -14,16 +14,53 @@ document.addEventListener("DOMContentLoaded", function () {
     const userInput = document.getElementById("userInput");
     const messages = document.getElementById("messages");
 
-    if (!sendButton || !userInput || !messages) {
+    const modeSelectButton = document.getElementById("modeSelectButton");
+    const modeOptions = document.getElementById("modeOptions");
+    const selectedModeText = document.getElementById("selectedModeText");
+
+    if (!sendButton || !userInput || !messages || !modeSelectButton || !modeOptions) {
         console.error("Required elements not found!");
         return;
     }
+
+    // Set default mode
+    let selectedMode = "hybrid";
 
     // auto adjust height of textarea
     userInput.addEventListener("input", function () {
         if (this.value.trim() !== "") { // Only adjust when there is content
             this.style.height = "auto";
             this.style.height = this.scrollHeight + "px";
+        }
+    });
+
+    // Toggle dropdown menu
+    modeSelectButton.addEventListener("click", function () {
+        modeOptions.classList.toggle("show");
+    });
+
+    // Select mode
+    modeOptions.addEventListener("click", function (e) {
+        const target = e.target.closest(".mode-option");
+        if (!target) return;
+
+        selectedMode = target.dataset.value;
+        selectedModeText.textContent = target.textContent;
+
+        // Highlight selected mode
+        document.querySelectorAll(".mode-option").forEach(option => {
+            option.classList.remove("selected");
+        });
+        target.classList.add("selected");
+
+        // Hide dropdown
+        modeOptions.classList.remove("show");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function (e) {
+        if (!modeSelectButton.contains(e.target) && !modeOptions.contains(e.target)) {
+            modeOptions.classList.remove("show");
         }
     });
 
@@ -63,12 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
         appendMessage(messageText, "message user-message");
         const botPlaceholder = appendMessage("Waiting...", "message bot-message");
     
-        const modeSelect = document.getElementById("modeSelect");
-        const selectedMode = modeSelect.value;
-
-        // const modelSelect = document.getElementById("modelSelect");
-        // const selectedModel = modelSelect.value;
-    
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append("ngrok-skip-browser-warning", "bypass");
@@ -87,6 +118,9 @@ document.addEventListener("DOMContentLoaded", function () {
             redirect: "follow"
         };
     
+        console.log("Sending request with mode:", selectedMode);
+        console.log("Request body:", raw);
+
         try {
             const startTime = performance.now();
     
@@ -111,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
             botPlaceholder.textContent = "Error connecting to API!";
             console.error(error);
         } finally {
-            getMessagesContainerHeight();
             userInput.style.height = "auto";
             userInput.style.height = userInput.scrollHeight + "px";
         }

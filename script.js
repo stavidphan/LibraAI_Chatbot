@@ -99,6 +99,10 @@ document.addEventListener("DOMContentLoaded", function () {
     
         appendMessage(messageText, "message user-message");
         const botPlaceholder = appendMessage("Waiting...", "message bot-message");
+
+        // Disable send button while processing
+        sendButton.disabled = true;
+        sendButton.classList.add("disabled");
     
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
@@ -152,6 +156,10 @@ document.addEventListener("DOMContentLoaded", function () {
             botPlaceholder.textContent = "Error connecting to API!";
             console.error(error);
         } finally {
+            // Re-enable send button after processing
+            sendButton.disabled = false;
+            sendButton.classList.remove("disabled");
+            
             userInput.style.height = "auto";
             userInput.style.height = userInput.scrollHeight + "px";
         }

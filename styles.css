@@ -4,12 +4,6 @@
     box-sizing: border-box;
 }
 
-/* html, body {
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;
-} */
-
 body {
     background-color: #1F2123;
     color: #e0e0e0;
@@ -276,14 +270,26 @@ body {
     width: 36px;
     height: 36px;
     margin-left: auto;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+/* Style for send button when disabled */
+#sendButton:disabled,
+#sendButton.disabled {
+    opacity: 0.5;
 }
 
 #sendButton svg {
-    transition: transform 0.2s;
+    transition: transform 0.2s ease;
 }
 
-#sendButton:hover svg {
-    transform: translateX(5px);
+#sendButton:hover:not(:disabled):not(.disabled) {
+    background-color: #444;
+}
+
+#sendButton:hover:not(:disabled):not(.disabled) svg {
+    transform: scale(1.3);
 }
 
 .new-chat-button {

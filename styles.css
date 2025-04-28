@@ -73,13 +73,13 @@ body {
 
 .messages div {
     margin: 5px 0;
-    padding: 10px 15px;
-    border-radius: 10px;
-    color: #ede5e5f6;
+    padding: 12px 18px; /* Tăng padding để dễ đọc */
+    border-radius: 12px; /* Tăng border-radius để mềm mại hơn */
+    color: #e0e0e0;
     font-family: "Roboto", Arial, sans-serif;
-    font-weight: 200;
+    font-weight: 300; /* Tăng font-weight nhẹ để dễ đọc */
     word-wrap: break-word;
-    line-height: 1.4;
+    line-height: 1.5; /* Tăng line-height để thoáng hơn */
 }
 
 .messages div.user-message {
@@ -93,17 +93,110 @@ body {
     text-align: left;
 }
 
+/* Style for bot-message */
 .messages div.bot-message {
     border: none;
+    padding-left: 0px;
+    animation: fadeIn 0.3s ease-in;
 }
 
+/* Animation for bot-message */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Handle <ul> lists in bot-message */
+.messages div.bot-message ul {
+    padding-left: 0;
+    margin: 8px 0;
+}
+
+.messages div.bot-message ul li {
+    list-style-type: none;
+    margin: 3px 0;
+    padding-left: 10px; /* Reduced from 20px to 10px */
+    position: relative;
+}
+
+/* Add bullet point (-) for <ul> items without icon */
+.messages div.bot-message ul li:not(.has-icon)::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: #e0e0e0;
+    font-weight: 400;
+}
+
+/* Handle <ol> lists in bot-message */
+.messages div.bot-message ol {
+    padding-left: 0;
+    margin: 8px 0;
+}
+
+.messages div.bot-message ol li {
+    list-style-position: outside;
+    margin: 3px 0 3px 20px;
+    padding-left: 5px;
+}
+
+/* Handle nested lists */
+.messages div.bot-message ul ul,
+.messages div.bot-message ul ol,
+.messages div.bot-message ol ul,
+.messages div.bot-message ol ol {
+    padding-left: 0px;
+    margin: 3px 0;
+}
+
+.messages div.bot-message ul ul li,
+.messages div.bot-message ul ol li,
+.messages div.bot-message ol ul li,
+.messages div.bot-message ol ol li {
+    margin: 3px 0;
+    padding-left: 10px;
+}
+
+.messages div.bot-message ul ul li,
+.messages div.bot-message ol ul li {
+    list-style-type: none;
+    padding-left: 15px; /* Reduced from 20px to 10px */
+    position: relative;
+}
+
+.messages div.bot-message ul ul li:not(.has-icon)::before,
+.messages div.bot-message ol ul li:not(.has-icon)::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: #e0e0e0;
+    font-weight: 400;
+}
+
+.messages div.bot-message ul ol li,
+.messages div.bot-message ol ol li {
+    list-style-position: outside;
+    margin: 3px 0 3px 20px;
+    padding-left: 0;
+}
+
+/* Handle links in bot-message */
 .messages div.bot-message a {
     color: #1E90FF;
-    text-decoration: underline;
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.2s ease;
 }
 
 .messages div.bot-message a:hover {
     color: #63B8FF;
+    text-decoration: underline;
 }
 
 .input-background-overlay {
@@ -370,6 +463,34 @@ body {
         padding-bottom: 80px; /* Adjust padding-bottom */
         padding-left: 10px;
         padding-right: 10px;
+    }
+
+    .messages div.bot-message {
+        padding: 10px 14px; /* Giảm padding trên điện thoại */
+    }
+
+    .messages div.bot-message p {
+        margin: 4px 0; /* Giảm khoảng cách trên điện thoại */
+    }
+
+    .messages div.bot-message ul,
+    .messages div.bot-message ol {
+        padding-left: 0;
+        margin: 6px 0; /* Giảm khoảng cách trên điện thoại */
+    }
+
+    .messages div.bot-message ul li,
+    .messages div.bot-message ol li {
+        margin: 2px 0;
+        padding-left: 18px; /* Giảm padding trên điện thoại */
+    }
+
+    .messages div.bot-message ul ul,
+    .messages div.bot-message ul ol,
+    .messages div.bot-message ol ul,
+    .messages div.bot-message ol ol {
+        padding-left: 10px;
+        margin: 2px 0;
     }
 
     .input-area {

@@ -163,6 +163,27 @@ document.addEventListener("DOMContentLoaded", function () {
         const messageDiv = document.createElement("div");
         className.split(" ").forEach(cls => messageDiv.classList.add(cls));
         messageDiv.innerHTML = marked.parse(text);
+
+        // Check for list items with icons at the beginning and add .has-icon class
+        const listItems = messageDiv.querySelectorAll("ul li");
+        listItems.forEach(item => {
+            // Get the first child node (text node or element)
+            const firstChild = item.childNodes[0];
+            if (firstChild && firstChild.nodeType === 3) { // Text node
+                const textContent = firstChild.textContent.trim();
+                const iconPattern = /^(✅|✔|➤|➜|→|★|✦|•|◦|□|■|📚|⭐|💡|🏦|💬|🔗)/;
+                if (iconPattern.test(textContent)) {
+                    item.classList.add("has-icon");
+                }
+            } else if (firstChild && firstChild.nodeType === 1) { // Element node (e.g., <strong>)
+                const textContent = item.textContent.trim();
+                const iconPattern = /^(✅|✔|➤|➜|→|★|✦|•|◦|□|■|📚|⭐|💡|🏦|💬|🔗)/;
+                if (iconPattern.test(textContent)) {
+                    item.classList.add("has-icon");
+                }
+            }
+        });
+
         messages.appendChild(messageDiv);
     
         if (messages.scrollHeight > 958) {

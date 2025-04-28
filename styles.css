@@ -73,13 +73,13 @@ body {
 
 .messages div {
     margin: 5px 0;
-    padding: 12px 18px; /* Tăng padding để dễ đọc */
-    border-radius: 12px; /* Tăng border-radius để mềm mại hơn */
+    padding: 12px 18px; 
+    border-radius: 12px;
     color: #e0e0e0;
     font-family: "Roboto", Arial, sans-serif;
-    font-weight: 300; /* Tăng font-weight nhẹ để dễ đọc */
+    font-weight: 300;
     word-wrap: break-word;
-    line-height: 1.5; /* Tăng line-height để thoáng hơn */
+    line-height: 1.5;
 }
 
 .messages div.user-message {
@@ -112,7 +112,6 @@ body {
     }
 }
 
-/* Handle <ul> lists in bot-message */
 .messages div.bot-message ul {
     padding-left: 0;
     margin: 8px 0;
@@ -121,7 +120,7 @@ body {
 .messages div.bot-message ul li {
     list-style-type: none;
     margin: 3px 0;
-    padding-left: 10px; /* Reduced from 20px to 10px */
+    padding-left: 10px;
     position: relative;
 }
 
@@ -143,7 +142,7 @@ body {
 .messages div.bot-message ol li {
     list-style-position: outside;
     margin: 3px 0 3px 20px;
-    padding-left: 5px;
+    padding-left: 10px; /* Distance between number and text */
 }
 
 /* Handle nested lists */
@@ -166,7 +165,7 @@ body {
 .messages div.bot-message ul ul li,
 .messages div.bot-message ol ul li {
     list-style-type: none;
-    padding-left: 15px; /* Reduced from 20px to 10px */
+    padding-left: 15px; /* Distance between '-' and text */
     position: relative;
 }
 
@@ -188,7 +187,7 @@ body {
 
 /* Handle links in bot-message */
 .messages div.bot-message a {
-    color: #1E90FF;
+    color: #418bd4;
     text-decoration: none;
     font-weight: 400;
     transition: color 0.2s ease;
@@ -435,7 +434,7 @@ body {
     }
 
     .logo-text {
-        font-size: 14px; /* Adjust font size */
+        font-size: 14px;
     }
 
     .new-chat-button {
@@ -451,7 +450,7 @@ body {
     }
 
     .new-chat-button:hover {
-        width: 100px; /* Adjust width when hovering on mobile */
+        width: 100px;
     }
 
     .new-chat-button .new-chat-text {
@@ -459,30 +458,30 @@ body {
     }
 
     .messages {
-        padding-top: 60px; /* Adjust padding-top on mobile */
-        padding-bottom: 80px; /* Adjust padding-bottom */
-        padding-left: 10px;
+        padding-top: 60px;
+        padding-bottom: 80px;
+        padding-left: 5px;
         padding-right: 10px;
     }
 
     .messages div.bot-message {
-        padding: 10px 14px; /* Giảm padding trên điện thoại */
+        padding: 10px 10px;
     }
 
     .messages div.bot-message p {
-        margin: 4px 0; /* Giảm khoảng cách trên điện thoại */
+        margin: 0px 0;
     }
 
     .messages div.bot-message ul,
     .messages div.bot-message ol {
-        padding-left: 0;
-        margin: 6px 0; /* Giảm khoảng cách trên điện thoại */
+        padding-left: 14px;
+        margin: 6px 0;
     }
 
     .messages div.bot-message ul li,
     .messages div.bot-message ol li {
         margin: 2px 0;
-        padding-left: 18px; /* Giảm padding trên điện thoại */
+        padding-left: 0px;
     }
 
     .messages div.bot-message ul ul,
@@ -494,12 +493,12 @@ body {
     }
 
     .input-area {
-        padding: 2px 6px 6px 6px; /* Adjust padding on mobile */
+        padding: 2px 6px 6px 6px;
         border-radius: 20px;
-        bottom: 0; /* Fix bottom to viewport */
-        width: 95%; /* Reduce width to avoid edge touching */
+        bottom: 0;
+        width: 95%;
         max-width: 320px;
-        max-width: none; /* Remove max-width for responsiveness */
+        max-width: none; 
         padding-bottom: env(safe-area-inset-bottom);
     }
 
@@ -511,8 +510,8 @@ body {
     }
 
     #userInput {
-        padding: 15px 10px 0px 10px; /* Giảm padding trên điện thoại */
-        font-size: 16px; /* Giảm kích thước chữ */
+        padding: 15px 10px 0px 10px;
+        font-size: 16px;
         min-height: 25px;
     }
 

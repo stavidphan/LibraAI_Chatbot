@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             const startTime = performance.now();
     
-            const response = await fetch("https://duo-workflow-fashion-bias.trycloudflare.com/query", requestOptions);
+            const response = await fetch("https://cba2-2405-4803-fb89-45a0-4c32-af89-8bb0-7435.ngrok-free.app/query", requestOptions);
             const result = await response.json();
     
             const endTime = performance.now();

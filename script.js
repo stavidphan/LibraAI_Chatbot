@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             const startTime = performance.now();
     
-            const response = await fetch("https://pubs-denial-happens-edt.trycloudflare.com/query", requestOptions);
+            const response = await fetch("https://duo-workflow-fashion-bias.trycloudflare.com/query", requestOptions);
             const result = await response.json();
     
             const endTime = performance.now();

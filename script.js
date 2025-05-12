@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             const startTime = performance.now();
     
-            const response = await fetch("https://cba2-2405-4803-fb89-45a0-4c32-af89-8bb0-7435.ngrok-free.app/query", requestOptions);
+            const response = await fetch("https://3932-2405-4803-fbc7-c5d0-3a85-2565-a261-fdb3.ngrok-free.app/query", requestOptions);
             const result = await response.json();
     
             const endTime = performance.now();
